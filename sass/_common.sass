@@ -3,6 +3,32 @@
 
 // Fonts
 // --------------------------------------------------
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,cyrillic)
+
+=os
+	font-family: "Open Sans", sans-serif
+	font-weight: 400
+	font-style: normal
+
+=osl
+	font-family: "Open Sans", sans-serif
+	font-weight: 300
+	font-style: normal
+
+=osb
+	font-family: "Open Sans", sans-serif
+	font-weight: 700
+	font-style: normal
+
+=ossb
+	font-family: "Open Sans", sans-serif
+	font-weight: 600
+	font-style: normal
+
+=oseb
+	font-family: "Open Sans", sans-serif
+	font-weight: 800
+	font-style: normal
 
 // Variables & mixins & extend
 // --------------------------------------------------
@@ -10,11 +36,148 @@
 // $dgray: #888
 // Common blocks
 
+%wrap
+	width: 992px
+	margin-left: auto
+	margin-right: auto
+
+.open-480
+	display: none
+	+r(w320)
+		display: block
+.hide-480
+	display: block
+	+r(w480)
+		display: none
+
+.out
+	background: url("../img/bg.jpg")
+	+cover
+	overflow: hidden
+
+body
+	+os
+	font-size: 14px
+	line-height: 1.4 
+	color: #FFF
+
+a
+	color: #FFF
+	&:hover
+		color: #FFF
+		text-decoration: none 
 // Headings
 // --------------------------------------------------
 
 // Nav
 // --------------------------------------------------
+.nav
+	margin: 0 -15px 185px
+	.nav-in
+		height: 48px
+		background: rgba(#000, .35)
+		@extend %wrap
+		position: relative
+		+r(w992)
+			height: 33px
+			margin-left: 48px
+		&:before
+			content: ""
+			width: 10000px
+			height: 48px
+			background: rgba(#000, .35)
+			position: absolute
+			top: 0
+			right: 100%
+			+r(w992)
+				height: 33px
+		&:after
+			content: ""
+			width: 10000px
+			height: 48px
+			background: rgba(#000, .35)
+			position: absolute
+			top: 0
+			left: 100%
+			+r(w992)
+				height: 33px
+	.nav-in-mobile
+		width: 186px
+		height: 155px
+		position: absolute
+		top: 0px
+		left: 0
+		+r(w992)
+			width: 132px
+			height: 110px
+	.nav-meta
+		p
+	.nav-subnav
+		height: 48px
+		+r(w992)
+			height: 33px
+		& > ul
+			float: left
+			margin-left: 186px
+			margin-bottom: 0
+			padding: 0
+			text-align: left
+			+clr
+			+r(w992)
+				margin-left: 132px
+			& > li
+				float: left
+				border-right: 1px solid #fff
+				list-style: none
+				position: relative
+				&:hover
+					.dropdown
+						display: block
+				& > a
+					display: block
+					padding: 15px 20px
+					font-size: 18px
+					+r(w992)
+						padding: 10px 15px
+					+ossb
+					line-height: 1
+					text-transform: uppercase
+					+r(w992)
+						font-size: 13px
+					&:hover
+						background: rgba(#000, .35)
+
+.dropdown
+	display: none
+	width: 200px
+	margin-top: 1px
+	padding-left: 0
+	position: absolute
+	top: 100%
+	left: 0
+	z-index: 100
+	li
+		list-style: none
+	a
+		display: block
+		padding: 7px 15px
+		font-size: 18px
+		+osb
+		background: rgba(#000, .35)
+		+r(w992)
+			font-size: 13px
+		&:hover
+			background: rgba(#000, .5)
+	
+
+.logo
+	+s(logo)
+	+hide-text
+	display: block
+	+r(w992)
+		+s(logo_tablet)
+.some-link
+
 
 // Header
 // --------------------------------------------------
