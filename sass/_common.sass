@@ -36,11 +36,27 @@
 // $dgray: #888
 // Common blocks
 
+.wrap
+	width: 992px
+	margin-left: auto
+	margin-right: auto
 %wrap
 	width: 992px
 	margin-left: auto
 	margin-right: auto
 
+.open-768
+	display: none
+	+r(w768)
+		display: block
+.hide-768
+	display: block
+	+r(w768)
+		display: none
+span.hide-768
+	display: inline-block
+	+r(w768)
+		display: none
 .open-480
 	display: none
 	+r(w320)
@@ -51,11 +67,17 @@
 		display: none
 
 .out
-	background: url("../img/bg.jpg")
-	+cover
-	overflow: hidden
+	width: 1022px
+	margin-left: auto
+	margin-right: auto
+	+r(w1060)
+		width: auto
+
 
 body
+	background: url("../img/bg.jpg")
+	+cover
+	overflow-x: hidden
 	+os
 	font-size: 14px
 	line-height: 1.4 
@@ -65,22 +87,26 @@ a
 	color: #FFF
 	&:hover
 		color: #FFF
-		text-decoration: none 
+		// text-decoration: none 
 // Headings
 // --------------------------------------------------
 
 // Nav
 // --------------------------------------------------
 .nav
-	margin: 0 -15px 185px
+	margin: 0 -15px 15px
 	.nav-in
 		height: 48px
+		margin: 0 15px
 		background: rgba(#000, .35)
 		@extend %wrap
 		position: relative
 		+r(w992)
 			height: 33px
-			margin-left: 48px
+			margin-left: 42px
+		+r(w768)
+			width: auto
+			margin-left: 0
 		&:before
 			content: ""
 			width: 10000px
@@ -110,12 +136,26 @@ a
 		+r(w992)
 			width: 132px
 			height: 110px
+		+r(w768)
+			width: 300px
+			height: 90px
+			left: 50%
+			margin-left: -150px
+			top: -96px
 	.nav-meta
-		p
+		font-size: 15px
+		+ossb
+		+text-shadow(0 0 10px #000)
+		+r(w768)
+			display: inline-block
+			vertical-align: middle
 	.nav-subnav
 		height: 48px
 		+r(w992)
 			height: 33px
+		+r(w768)
+			margin-top: 96px
+			text-align: center
 		& > ul
 			float: left
 			margin-left: 186px
@@ -124,7 +164,14 @@ a
 			text-align: left
 			+clr
 			+r(w992)
-				margin-left: 132px
+				// float: none
+				// display: inline-block
+				margin-left: 150px
+			+r(w768)
+				float: none
+				display: inline-block
+				margin-left: auto
+				margin-right: auto
 			& > li
 				float: left
 				border-right: 1px solid #fff
@@ -137,20 +184,34 @@ a
 					display: block
 					padding: 15px 20px
 					font-size: 18px
-					+r(w992)
-						padding: 10px 15px
 					+ossb
 					line-height: 1
 					text-transform: uppercase
 					+r(w992)
+						padding: 10px 13px
 						font-size: 13px
+					+r(w768)
+						padding: 10px 5px
+						font-size: 14px
 					&:hover
 						background: rgba(#000, .35)
+						text-decoration: none
+		.nav-subnav-tel
+			width: 60px
+			height: 38px
+			border-right: none
+			a
+				position: absolute
+				top: -22px
+				right: -14px
+				+s(i-tel)
+				&:hover
+					+s(i-tel)
 
 .dropdown
 	display: none
 	width: 200px
-	margin-top: 1px
+	padding-top: 1px
 	padding-left: 0
 	position: absolute
 	top: 100%
@@ -168,25 +229,252 @@ a
 			font-size: 13px
 		&:hover
 			background: rgba(#000, .5)
+			text-decoration: none
 	
-
 .logo
 	+s(logo)
 	+hide-text
 	display: block
 	+r(w992)
 		+s(logo_tablet)
-.some-link
+	+r(w768)
+		margin-right: 18px
+		display: inline-block
+		vertical-align: middle
+		+s(logo_mobile)
 
+.some
+	margin-bottom: 25px
+	text-align: right
+	@extend %wrap
+	+r(w1060)
+		width: auto
+	+r(w768)
+		margin-bottom: 45px
+	.some-link
+		padding-right: 43px
+		font-size: 24px
+		text-transform: uppercase
+		+osb
+		text-shadow: 0 0 10px #000
+		&:before
+			content: ""
+			+s(i-tel)
+			display: inline-block
+			vertical-align: middle
+		span
+			display: inline-block
+			vertical-align: middle
 
-// Header
+// 
 // --------------------------------------------------
+.carousel
+	height: 375px
+	margin-bottom: 25px
+	+r(w768)
+		height: 290px
+	.carousel-inner
+		overflow: visible
+		width: 100%
+	.carousel-in
+		@extend %wrap
+		position: relative
+		+r(w1060)
+			width: auto
+	.carousel-caption
+		height: 37px
+		line-height: 37px
+		padding: 0px 10px
+		left: 0
+		right: 0
+		top: 100%
+		background: rgba(#000, .5)
+		border-radius: 0 0 5px 5px
+	img
+		width: 100% !important
+		height: 330px !important
+		border-radius: 5px
+		+r(w768)
+			height: 245px !important
+		
+.carousel-fade
+	.carousel-inner
+		.item
+			opacity: 0
+			transition-property: opacity
+		.active 
+			opacity: 1
+		.active.left, .active.right 
+			left: 0
+			opacity: 0
+			z-index: 1
+		.next.left, .prev.right 
+			opacity: 1
+		.carousel-control
+			z-index: 2
 
+.carousel-indicators
+	bottom: 0
+	li
+		border: 1px solid #383838
+
+.carousel-control
+	&.left
+		.glyphicon-chevron-left
+			&:before
+				content: ""
+				display: inline-block
+				+s(i-prev)
+	&.right
+		.glyphicon-chevron-right
+			&:before
+				content: ""
+				display: inline-block
+				+s(i-next)
+// 
+// --------------------------------------------------
+.type
+	height: 345px
+	margin-bottom: 35px
+	background: url("../img/type-bg.png")
+	border-radius: 5px
+	text-align: center
+	+cover
+	+r(w768)
+		margin-bottom: 0
+	&.type-economy
+		.type-top
+			border-bottom: 4px solid #fded0a
+	&.type-business
+		.type-top
+			border-bottom: 4px solid #b5b5b6
+	&.type-premium
+		.type-top
+			border-bottom: 4px solid #77b6d6
+	.type-top
+		font-size: 20px
+		+osb
+		text-align: center
+		color: #000
+		.h3
+			margin-bottom: 0
+			padding: 30px 0 20px
+			font-size: 20px
+			+osb
+			text-transform: uppercase
+			+r(w992)
+				font-size: 16px
+			+r(w768)
+				font-size: 20px
+	.type-media
+		height: 165px
+		margin-bottom: 45px
+		padding-top: 30px
+		text-align: center
+
+
+// 
+// --------------------------------------------------
+.service
+	background: rgba(#000, .55)
+	border-radius: 10px
+	+r(w768)
+		margin-top: 20px
+	+r(w560)
+		padding-bottom: 15px
+	.service-top
+		padding: 15px 10px
+		border-bottom: 1px solid #c9c9c9 
+		+r(w560)
+			padding: 15px
+		h3
+			font-size: 20px
+			text-transform: uppercase
+			+osb
+			margin: 0
+	.service-item
+		padding: 20px 10px
+		+clr
+		+r(w560)
+			margin-top: 10px
+			padding: 0 15px
+	.service-item-media
+		width: 140px
+		margin-right: 10px
+		float: left
+		+r(w560)
+			display: none
+	.service-item-descr
+		overflow: hidden
+		font-size: 14px
+		+osl
+		+r(w560)
+			font-size: 15px
+		.h4
+			margin: 0 0 5px
+			font-size: 16px
+			+osb
+		p
+// --------------------------------------------------
+.news
+	background: rgba(#000, .55)
+	border-radius: 10px
+	+r(w768)
+		margin-top: 20px
+	.news-top
+		padding: 15px 15px
+		border-bottom: 1px solid #c9c9c9 
+		h3
+			font-size: 20px
+			text-transform: uppercase
+			+osb
+			margin: 0
+	.news-in
+		padding: 15px 15px
+
+// --------------------------------------------------
+// --------------------------------------------------
 // Footer
 // --------------------------------------------------
-
-// 
-// --------------------------------------------------
-// 
-// --------------------------------------------------
+.footer
+	margin-top: 60px
+	border-top: 1px solid #c5c3c2
+	text-align: center
+	.footer-nav
+		display: inline-block
+		padding: 20px 0 40px
+	ul
+		padding: 0
+		+clr
+	li
+		float: left
+		margin-left: 22px
+		list-style: none
+		position: relative
+		+r(w560)
+			margin-left: 16px
+		&:first-child
+			margin-left: 0
+			&:before
+				content: none
+		&:before
+			content: ""
+			width: 2px
+			height: 20px
+			background: #fff 
+			position: absolute
+			top: 50%
+			margin-top: -10px
+			left: -11px
+			+r(w560)
+				margin-left: 1px
+	a
+		font-size: 20px
+		text-transform: uppercase
+		+osb
+		+r(w560)
+			font-size: 17px
+			+ossb
+		&:hover
+			text-decoration: underline
 
