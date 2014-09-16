@@ -493,6 +493,7 @@ a
 			margin-bottom: 25px
 // --------------------------------------------------
 .form
+	min-height: 421px 
 	background: rgba(0, 0, 0, 0.55)
 	border-radius: 10px
 	.form-top
@@ -506,6 +507,19 @@ a
 	.form-in
 		padding: 15px 10px
 		color: #fff
+		.row
+			margin-bottom: 3px
+	.form-btn
+		margin: 15px 0
+		text-align: center
+	.textarea
+		min-height: 115px 
+.form-control
+	border-radius: 0
+	background: rgba(#fcfcfc, .75)
+
+textarea.form-control
+	resize: vertical
 
 
 // Footer
@@ -574,3 +588,48 @@ a
 				color: #000 
 	.kontakt-in
 		padding: 25px 20px 35px
+		label
+			height: 34px
+			line-height: 34px
+			font-size: 14px
+			+osl
+		.row
+			margin-bottom: 9px
+		textarea
+			min-height: 140px
+		.form-control
+			+osl
+			font-size: 14px
+			+placeholder-color(transparent)
+			+r(w768)
+				+placeholder-color(#000)
+
+	.kontakt-btn
+		text-align: right
+		.btn
+			padding-left: 55px
+			padding-right: 55px
+	.kontakt-logo
+		margin-bottom: 25px
+		display: inline-block
+		+s(logo2)
+	.kontakt-row
+		padding-right: 24px
+		+r(w768)
+			padding-right: 0
+	.kontakt-meta
+		margin-bottom: 35px
+		font-size: 14px
+		+osl
+		p
+	.kontakt-addr
+		font-size: 14px
+		+osl
+		+r(w768)
+			margin-bottom: 20px
+		p
+			margin-bottom: 0
+			line-height: 1.6 
+		a
+			color: #000 
+

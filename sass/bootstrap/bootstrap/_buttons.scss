@@ -61,7 +61,12 @@
       right: 15px;
     }
   }
-
+  &.btn-dark {
+    background: rgba(#000, .55);
+    &:hover {
+      color: #FFF;
+    }
+  }
   &.btn-bullhorn {
     display: inline-block;
     margin-right: 10px;
