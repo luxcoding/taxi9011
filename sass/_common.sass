@@ -296,7 +296,24 @@ a
 		border-radius: 5px
 		+r(w768)
 			height: 245px !important
-		
+
+.carousel-normal
+	height: 335px
+	border-radius: 10px
+	overflow: hidden
+	img
+		width: 100% \9 !important
+		height: auto !important
+	.item
+		height: 335px
+		+cover
+	.carousel-indicators
+		+r(w560)
+			display: none
+		li
+			width: 16px
+			height: 16px
+	
 .carousel-fade
 	.carousel-inner
 		.item
@@ -380,6 +397,7 @@ a
 	border-radius: 10px
 	+r(w768)
 		margin-top: 20px
+		margin-bottom: 20px
 	+r(w560)
 		padding-bottom: 15px
 	.service-top
@@ -417,10 +435,9 @@ a
 		p
 // --------------------------------------------------
 .news
+	padding-bottom: 25px
 	background: rgba(#000, .55)
 	border-radius: 10px
-	+r(w768)
-		margin-top: 20px
 	.news-top
 		padding: 15px 15px
 		border-bottom: 1px solid #c9c9c9 
@@ -431,9 +448,66 @@ a
 			margin: 0
 	.news-in
 		padding: 15px 15px
+	.news-item
+		margin-bottom: 15px
+		.news-item-date
+			font-size: 14px
+			+osl
+		.news-item-title
+			font-size: 16px
+			+ossb
+			a
+				font-size: 16px
+				+ossb
+		.news-item-content
+			font-size: 14px
+			+osl
+	
+	.jspVerticalBar
+		height: auto
+		top: 10px
+		bottom: 10px
+		right: 16px
+		overflow: hidden
 
 // --------------------------------------------------
+.widget
+	margin-bottom: 40px
+	+gh3(rgba(#fff, 1), rgba(#fff, .85), rgba(#fff, 1))
+	border-radius: 10px
+	color: #000 
+	.widget-top
+		margin: 0 20px
+		padding: 15px 5px
+		border-bottom: 4px solid #278c44 
+	.h3
+		font-size: 20px
+		+osb
+		a
+			color: #000 
+			font-size: 20px
+			+osb
+	.widget-content
+		padding: 15px 20px
+		p
+			margin-bottom: 25px
 // --------------------------------------------------
+.form
+	background: rgba(0, 0, 0, 0.55)
+	border-radius: 10px
+	.form-top
+		padding: 15px 10px
+		border-bottom: 1px solid #c9c9c9
+		.h3
+			margin: 0
+			font-size: 20px
+			text-transform: uppercase
+			+osb
+	.form-in
+		padding: 15px 10px
+		color: #fff
+
+
 // Footer
 // --------------------------------------------------
 .footer
@@ -478,3 +552,25 @@ a
 		&:hover
 			text-decoration: underline
 
+.scroll-pane
+	height: 343px
+	overflow: auto
+
+.kontakt
+	+gh3(rgba(#fff, 1), rgba(#fff, .85), rgba(#fff, 1))
+	border-radius: 10px
+	color: #000 
+	.kontakt-top
+		margin: 0 20px
+		padding: 25px 5px 15px
+		border-bottom: 4px solid #fded0a 
+		.h3
+			margin: 0
+			font-size: 20px
+			+osb
+			a
+				font-size: 20px
+				+osb
+				color: #000 
+	.kontakt-in
+		padding: 25px 20px 35px
