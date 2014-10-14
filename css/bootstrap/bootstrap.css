@@ -1135,6 +1135,8 @@ textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, .input
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn { cursor: not-allowed; pointer-events: none; opacity: 0.65; filter: alpha(opacity=65); -webkit-box-shadow: none; box-shadow: none; }
 .btn.btn-account { margin-right: 21px; padding-right: 35px; position: relative; }
 .btn.btn-account .i-arr { position: absolute; top: 50%; margin-top: -5px; right: 15px; }
+.btn.btn-dark { background: rgba(0, 0, 0, 0.55); }
+.btn.btn-dark:hover { color: #FFF; }
 .btn.btn-bullhorn { display: inline-block; margin-right: 10px; width: 44px; height: 44px; position: relative; }
 .btn.btn-bullhorn .i-bullhorn { position: absolute; top: 50%; margin-top: -10px; left: 50%; margin-left: -11px; }
 .btn.btn_danger { border-color: #ef5f2a; color: #EF5F2A; }
